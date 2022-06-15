@@ -1,4 +1,4 @@
-FROM frolvlad/alpine-miniconda3:python3.7
+FROM frolvlad/alpine-miniconda3:python3.8
 
 COPY requirements.txt .
 
