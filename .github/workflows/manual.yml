@@ -7,7 +7,7 @@ on:
   # Triggers the workflow on push request events only when there are changes in the desired path
   push:
     paths:
-      - 'ML-WITH-DOCKER\with-batch/**'
+      - 'ML-WITH-DOCKER/with-batch/**'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -20,7 +20,7 @@ jobs:
         # Use bash as the shell
         shell: bash
         # Specify the working directory for the worflow
-        working-directory: ML-WITH-DOCKER\with-batch
+        working-directory: ML-WITH-DOCKER/with-batch
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
