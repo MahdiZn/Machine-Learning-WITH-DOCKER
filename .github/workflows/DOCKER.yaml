@@ -23,11 +23,8 @@ jobs  :
         run: |
           # Your ML workflow goes here
           pip install -r requirements.txt
-                  
-   
-
-
-- 
+                     
+      - 
         name: BUILD DOCKER IMAGE 
         run: |
           docker build -t wine_clf:with-batch .
