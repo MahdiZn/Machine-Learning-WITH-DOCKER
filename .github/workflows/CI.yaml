@@ -1,4 +1,4 @@
-name: PREDICTION-WINE
+name: CI-workflow
 on: [push]
 
 
