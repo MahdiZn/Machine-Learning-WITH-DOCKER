@@ -7,7 +7,7 @@ from pydantic import BaseModel, conlist
 
 app = FastAPI(title="Predicting Wine Class with batching")
 
-# Represents a batch of wines
+# Represents a batch of wines 13 features
 class Wine(BaseModel):
     batches: List[conlist(item_type=float, min_items=13, max_items=13)]
 
