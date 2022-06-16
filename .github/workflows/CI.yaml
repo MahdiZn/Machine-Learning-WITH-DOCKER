@@ -2,10 +2,7 @@ name: your-workflow-name
 on: [push]
 
 
-jobs 
-
-
-
+jobs :
   run:
     runs-on: ubuntu-latest
     # optionally use a convenient Ubuntu LTS + DVC + CML image
