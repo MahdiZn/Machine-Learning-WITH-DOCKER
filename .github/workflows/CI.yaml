@@ -34,9 +34,9 @@ jobs :
       -
         name: CURL 
         run: |
-          cd wine-examples/
+       
           curl -X POST http://localhost:81/predict \
-          -d @ batch_1.json \
+          -d @../wine-examples/batch_1.json \
           -H "Content-Type: application/json"  >>report.md       
       - name: Write CML report
         env:
