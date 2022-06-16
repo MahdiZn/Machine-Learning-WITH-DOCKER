@@ -24,16 +24,8 @@ jobs :
           # Your ML workflow goes here
           pip install -r requirements.txt
           
+         
           
-      - 
-        name: BUILD DOCKER IMAGE 
-        run: |
-          docker build -t wine_clf:with-batch .
-      
-      - 
-        name: run DOCKER 
-        run: |
-          docker run --rm -p 81:80 wine_clf:with-batch
       -
         name: Test with pytest
         run: |
