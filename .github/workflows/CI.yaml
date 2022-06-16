@@ -25,15 +25,7 @@ jobs :
           pip install -r requirements.txt
           
           
-      - 
-        name: BUILD DOCKER IMAGE 
-        run: |
-          docker build -t wine_clf:with-batch .
-      
-      #- 
-       # name: run DOCKER 
-       # run: |
-        #  docker run --rm -p 80:80 wine_clf:with-batch
+     
       -
         name: Test with pytest
         run: |
