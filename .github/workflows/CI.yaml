@@ -22,7 +22,7 @@ jobs :
       - name: install dependecies
         run: |
           # Your ML workflow goes here
-          pip install -r requiremets.txt
+          pip install -r requirements.txt
           
           
       - 
