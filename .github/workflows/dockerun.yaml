@@ -18,11 +18,21 @@ jobs :
         with:
            python-version: '3.7'
       - uses: iterative/setup-cml@v1
+      - name: install dependecies
+        run: |
+          # Your ML workflow goes here
+          pip install -r requirements.txt
+          
+          
+      - 
+        name: BUILD DOCKER IMAGE 
+        run: |
+          docker build -t wine_clf:with-batch .
       
       
       
       - 
         name: run DOCKER 
         run: |
-          docker run --rm -p 80:80 wine_clf:with-batch
+          docker run --rm -p 81:80 wine_clf:with-batch
     
