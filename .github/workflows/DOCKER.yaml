@@ -1,9 +1,7 @@
-name:docker-jecutar
-
-on:[push]
-
-jobs  :
-  run :
+name: RUNdocker
+on: [push]
+jobs:
+  run:
     runs-on: ubuntu-latest
     # optionally use a convenient Ubuntu LTS + DVC + CML images
     # container: docker://ghcr.io/iterative/cml:0-dvc2-base1
