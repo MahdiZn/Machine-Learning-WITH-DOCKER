@@ -12,7 +12,7 @@ class Wine(BaseModel):
     batches: List[conlist(item_type=float, min_items=13, max_items=13)]
 
 # Open classifier in global scope
- with open("../app/wine.pkl", "rb") as file:
+ with open("./app/wine.pkl", "rb") as file:
     clf = pickle.load(file)
 
         
