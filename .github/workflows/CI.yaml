@@ -1,11 +1,14 @@
 name: your-workflow-name
-on: push
-  
-  paths:
-    - 'ML-WITH-DOCKER/with-batch/**'
+on: [push]
 
 
-jobs:
+jobs 
+
+  run:
+  defaults:
+      paths:
+      - 'ML-WITH-DOCKER/with-batch/**'
+
   run:
     runs-on: ubuntu-latest
     # optionally use a convenient Ubuntu LTS + DVC + CML image
@@ -15,7 +18,7 @@ jobs:
         # Use bash as the shell
         shell: bash
         # Specify the working directory for the worflow
-        working-directory: ML-WITH-DOCKER/with-batch
+        working-directory: ML-WITH-DOCKER/with-batch/
     steps:
       - uses: actions/checkout@v2
       # may need to setup NodeJS & Python3 on e.g. self-hosted
