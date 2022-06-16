@@ -1,0 +1,62 @@
+# Run unit tests for your Python application
+
+name: docker-app-testing
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push request events only when there are changes in the desired path
+  push:
+    paths:
+      - 'ML-WITH-DOCKER/with-batch/**'
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "test"
+  test:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        # Use bash as the shell
+        shell: bash
+        # Specify the working directory for the worflow
+        working-directory: ML-WITH-DOCKER/with-batch
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v2
+      - 
+        name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.7'
+      - 
+        name: Install dependencies
+        run: |
+         
+          pip install -r requirements.txt
+          
+      - 
+        name: BUILD DOCKER IMAGE 
+        run: |
+          docker build -t wine_clf:with-batch .
+      
+      - 
+        name: run DOCKER 
+        run: |
+          docker run --rm -p 80:80 wine_clf:with-batch
+      -
+        name: Test with pytest
+        run: |
+          cd app/
+          pytest
+          
+      -
+        name: CURL 
+        run: |
+          cd wine-example/
+          curl -X POST http://localhost:81/predict \
+          -d @./wine-examples/batch_1.json \
+          -H "Content-Type: application/json" >>report.md    
