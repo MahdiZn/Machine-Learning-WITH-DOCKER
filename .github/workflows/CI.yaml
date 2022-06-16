@@ -5,7 +5,7 @@ name: docker-app-testing
 # Controls when the action will run. 
 on:
   # Triggers the workflow on push request events only when there are changes in the desired path
-  [push]:
+  push:
     paths:
       - 'ML-WITH-DOCKER/with-batch/**'
 
