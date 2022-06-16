@@ -50,9 +50,9 @@ The Dockerfile for this new version of the server is identical to the previous o
 Now, while on the `with-batch` directory run the docker build command:
 
 ```bash
-docker build -t mlepc4w2-ugl:with-batch . 
+docker build -t imagename:version . 
 ```
-
+# . is importante not skip root where dockerfile wile execute
 Since the initial layers are identical to the ones of the previous image, the build process should be fairly quick. This is another great feature of Docker called `layer caching`, which caches layers for newer builds to yield lower build times.
 
 Notice that the image name stays the same, but the tag changed to specify that this version of the server supports batching.
@@ -87,7 +87,7 @@ Now if you run again the `docker images` command you should not see those interm
 Now you can run a container out of the image using the following command:
 
 ```bash
-docker run --rm -p 81:80 mlepc4w2-ugl:with-batch 
+docker run --rm -p 81:80 imagename:version
 ```
 
 Notice that this time, port 80 within the container maps to port 81 in your local host. This is because you probably haven't stopped the server from part 1 of this lab which is still running on port 80. It also serves to showcase how port mapping can be use to map from any port in the container to any port in the host.
@@ -116,12 +116,3 @@ To step to servers and the containers they are running in, simply use the key co
 
 Alternatively you can use the `docker ps` command to check the name of the running containers and use the `docker stop name_of_container` command to stop them. Remember that you used the `--rm` flag so once you stop these containers they will also be deleted.
 
-**Do not delete the images you created since they will be used in an upcoming lab!**
-
------
-
-**Congratulations on finishing this ungraded lab!**
-
-Now you should have a better understanding of how web servers can be used to host your machine learning models. You saw how you can use a library such as FastAPI to code the server and use Docker to ship your server along with your model in an easy manner. You also learned about some key concepts of Docker such as `image tagging` and `port mapping` and how  to allow for batching in the requests. In general you should have a clearer idea of how all these technologies interact to host models in production.
-
-**Keep it up!**
