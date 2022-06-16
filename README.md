@@ -86,12 +86,12 @@ Now if you run again the `docker images` command you should not see those interm
 Now you can run a container out of the image using the following command:
 
 ```bash
-docker run --rm -p 81:80 imagename:version
+docker run --rm -p 80:80 imagename:version
 ```
 
-Notice that this time, port 80 within the container maps to port 81 in your local host. This is because you probably haven't stopped the server from part 1 of this lab which is still running on port 80. It also serves to showcase how port mapping can be use to map from any port in the container to any port in the host.
+Notice that this time, port 80 within the container maps to port 80 in your local host. This is because you probably haven't stopped the server from part 1 of this lab which is still running on port 80. It also serves to showcase how port mapping can be use to map from any port in the container to any port in the host.
 
-Now head over to [localhost:81](http://localhost:81) and you should see a message about the server spinning up correctly.
+Now head over to [localhost:80](http://localhost:81) and you should see a message about the server spinning up correctly.
 
 
 
@@ -102,12 +102,12 @@ Once again it is time to test your server by actually using it for prediction. I
 To get the predictions for a batch of 32 wines (found in the batch_1.json file) you can send a `POST` request to the server using `curl` like this:
 
 ```bash
-curl -X POST http://localhost:81/predict \
+curl -X POST http://localhost:80/predict \
     -d @./wine-examples/batch_1.json \
     -H "Content-Type: application/json"
 ```
 
-Now you should see a list with the 32 predictions (in order) for each one of the data points within the batch. **Nice work!**
+Now you should see a list with the 32 predictions (in order) for each one of the data points within the batch.
 
 ## Stopping the servers
 
