@@ -21,7 +21,11 @@ jobs:
         run: |
           # Your ML workflow goes here
           pip install -r requirements.txt
-                     
+      -
+        name: Test with pytest
+        run: |
+          cd app/
+          pytest               
       - 
         name: BUILD DOCKER IMAGE 
         run: |
