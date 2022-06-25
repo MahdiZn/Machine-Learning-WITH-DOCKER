@@ -27,7 +27,4 @@ jobs:
         run: |
           docker build -t wine_clf:with-batch .
       
-      -
-        name: run DOCKER 
-        run: |
-          docker run --rm -p 80:80 wine_clf:with-batch
+     
